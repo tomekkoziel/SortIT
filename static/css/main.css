@@ -1,0 +1,375 @@
+/* Index */
+
+nav[type="main"] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #00b8d4, #0052cc);
+  padding: 20px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+}
+  
+#logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+#logo:hover {
+  color: #000000;
+}
+
+#algo-select {
+  width: 200px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #000000;
+  font-size: 16px;
+  color: #555;
+  margin: 0 10px;
+}
+
+#algo-select:hover {
+  border-color: #888;
+}
+
+#algo-select:focus {
+  outline: none;
+  border-color: #aaa;
+}
+
+#auth {
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+}
+
+#auth a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+#auth a:hover {
+  color: #000000;
+}
+
+footer {
+  margin-top: auto;
+}
+  
+/* body */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+article {
+  text-align: center;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.menu-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+
+p {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+/* code */
+
+#menu-code {
+  display: inline-block;
+}
+
+.buttons-container-languages {
+  height: 50px;
+  padding: 20px;
+}
+
+.buttons-container-languages button {
+  height: 100%;
+  width: 120px;
+  background: #00b8d4;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.buttons-container-languages button:hover {
+  background: #0052cc;
+  color: white;
+}
+
+.buttons-container-languages button:focus {
+  background: #0052cc;
+  color: white;
+}
+
+#code-content {
+  display: inline-block;
+  background-color: lightgray;
+  border-radius: 4px;
+  border: 2px solid #000000;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* canvas */
+
+.buttons-container {
+  height: 50px;
+  padding: 20px;
+}
+
+.buttons-container button {
+  height: 100%;
+  width: 120px;
+  background: #00b8d4;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.buttons-container input {
+  height: 100%;
+  width: 120px;
+  background: #00b8d4;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.buttons-container button:hover {
+  background: #0052cc;
+  color: white;
+}
+
+.buttons-container button:focus {
+  background: #0052cc;
+  color: white;
+}
+
+
+#save-button {
+  height: 100%;
+  width: 120px;
+  background: #00b8d4;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+#save-button:hover {
+  background: #0052cc;
+  color: white;
+}
+
+#save-button:focus {
+  background: #0052cc;
+  color: white;
+}
+
+#inputElements {
+  text-align: center;
+  width: 60px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#submitElements {
+  width: 80px;
+  background-color: #4CAF50;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#submitElements:hover {
+  background-color: #155818;
+  color: white;
+}
+  
+canvas {
+  background: lightgray;
+  border-radius: 4px;
+  border: 2px solid #000000;
+}
+
+/* Profile */
+
+#algo-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#algo-table th, td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+#algo-table th {
+  background-color: #dddddd;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+th, td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Warnings */
+
+#error-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+  background-color: #f44336;
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  z-index: 999;
+}
+
+#error-message.show {
+  display: block;
+  animation: fadeOut 5s;
+}
+
+#error-message.hide {
+  display: none;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Registration / Login */
+
+body[type="login"],
+body[type="register"] {
+  background: linear-gradient(to right, #00b8d4, #0052cc);
+}
+
+#logo[type="regLog"] {
+  height: 30px;
+  width: 90px;
+  color: #000000;
+}
+
+#logo[type="regLog"]:hover {
+  color: #fff;
+}
+
+#pageTitle {
+  font-weight: bold;
+  color:  #fff;
+  font-size: 36px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+form[type="login"],
+form[type="register"] {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+label {
+  font-size: 18px;
+  color:  #fff;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 450px;
+  padding: 12px 20px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+}
+
+#loginRegister {
+  width: 200px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#loginRegister:hover {
+  background-color: #45a049;
+}
+
+#signinRegisterSubbuttons {
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+}
+
+#signinRegisterSubbuttons:hover {
+  color: #fff;
+}
+
+.signin {
+  color:  #fff;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}

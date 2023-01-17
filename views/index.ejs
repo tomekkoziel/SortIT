@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SortIT</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/css/logo.png">
+    <link rel="StyleSheet" href="/css/main.css" type="text/css">
+    <!-- other js files -->
+    <script type="module" src="/js/sort.js"></script>
+    <script type="module" src="/js/canvas_draw.js" defer></script>
+    <script type="module" src="/js/saveLoad.js" defer></script>
+</head>
+
+<body>
+    <% if(error) { %>
+        
+        <div id="error-message" class="show">
+            <%= error %>
+        </div>
+        <script>
+            setTimeout(function(){
+            document.getElementById("error-message").classList.remove("show");
+            document.getElementById("error-message").classList.add("hide");
+        }, 3000);
+        </script>
+    
+    <% } %>
+    
+    <nav type="main">
+        <a href="/" id="logo">
+            SortIT
+        </a>
+        <select id="algo-select">
+            <option value="" selected disabled hidden>Wybierz algorytm</option>
+            <option value="bubble">Bubble Sort</option>
+            <option value="insertion">Insertion Sort</option>
+            <option value="merge">Merge Sort</option>
+            <option value="quick">Quick Sort</option>
+            <option value="selection">Selection Sort</option>
+        </select>
+        <div id="auth">
+            <% if(loggedIn) { %>
+                <a href="/profile" id="profile-button">Profil</a>
+                <a href="/logout" id="logout-button">Wyloguj się</a>
+            <% } else { %>
+                <a href="/register" id="register-button">Rejestracja</a>
+                <a href="/login" id="login-button">Zaloguj się</a>
+            <% } %>
+        </div>
+    </nav>
+    
+    <% if(!username) { %>
+    
+        <article id="intro">
+            <h2>Wstęp</h2>
+            <p>
+                Projekt ma na celu wizualizację algorytmów sortujących. Możliwe jest także rejestracja użytkownika, w momencie gdy użytkownik jest zalogowany możliwy jest zapis ilości elementów do sortowania, które zostaną zapisane w bazie SQLite.
+            </p>
+        </article>
+    <% } %>
+    
+    <article id="algorithm" hidden> 
+        <h2 id="algo-name"> </h2>
+        
+        <p id="algo-desc"></p>
+        
+        <div class="menu-container">
+            <div class="menu-code">
+                <div class='buttons-container-languages'>
+                    <button id="javascript">JavaScript</button>
+                    <button id="python">Python</button>
+                    <button id="cpp">C++</button>
+                </div>
+                <div id="code-content">
+                    <pre>
+                        <code id="algo-code">
+WYBIERZ JĘZYK PROGRAMOWANIA</code>
+                    </pre>
+                </div>
+            </div>
+        
+            <div class="menu-visualization" onload="loadValues()">
+                <div id="canvas-content">
+                    <canvas id="visual" width="800" height="390"></canvas>
+                </div>
+                <div class="buttons-visalization">
+                    <p>Podaj ilość elementów do posortowania.</p>
+                    <p>
+                        50 <input type="range" min="50" max="200" value="125" id="numberOfElements" oninput="inputElements.value = this.value" oninput="numberofelements.value = this.value" /> 200
+                    </p>
+                    <div class='buttons-container'>
+                        <input type="text" id="inputElements" value="125" readonly/>
+                        <button id="randomize-button">RANDOMIZE</button>
+                        <button id="sortit-button">Sort IT</button>
+                        
+                        <% if(loggedIn) { %>
+                            <button id="load-button">WCZYTAJ</button>
+                            
+                            <form id="save-form" action="/save" method="post">
+                                <input type="text" id="algorithm-name" name="algorithm_name" value="" hidden>
+                                <input type="number" id="numberofelements" name="elements" value=125 hidden>
+                                <input type="submit" id="save-button" value="ZAPISZ">
+                            </form>
+                            
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    
+    <% if(username) { %>
+    
+        <article id="profile">
+            <h2>Witaj, <%= username %>!</h2>
+            <p>
+                Oto twój profil, możesz tutaj zobaczyć swoje dane oraz nazwę algorytmu wraz z ilością elementów dla którego wykonałeś sortowanie.
+            </p>
+            
+            <table>
+                <tr>
+                    <th>Nazwa Użytkownika:</th>
+                    <th>Email:</th>
+                </tr>
+                <tr>
+                    <td><%= username %></td>
+                    <td><%= email %></td>
+                </tr>
+            </table>
+            
+            <% if(algorithms.length > 0) { %>
+            
+                <h3>Ostatnio wykonane sortowania:</h3>
+            
+                <table id="algo-table">
+                    <tr>
+                        <th>Algorytm</th>
+                        <th>Ilość elementów</th>
+                    </tr>
+                    <% algorithms.forEach(algorithm => { %>
+                        <tr>
+                            <td id="algo-name"> 
+                                <%= algorithm.algorithm_name %> 
+                            </td>
+                            <td id="num-elements">
+                                <%= algorithm.elements %> 
+                            </td>
+                        </tr>
+                    <% }); %>
+                </table>
+                
+            <% } else { %>
+                
+                <h3>Do tej pory nie wykonałeś żadnego sortowania.</h3>
+            
+            <% } %>
+                
+        </article>
+    <% } %>
+    
+    <footer>
+        <pre>
+Tomasz Kozieł
+TI 2022 Kraków</pre>
+      </footer>
+</body>
+
+</html>

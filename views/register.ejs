@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration</title>
+  <link rel="stylesheet" href="/css/main.css" type="text/css">
+  <link rel="icon" href="/css/logo.png">
+  <script src="/js/error.js"></script>
+</head>
+<body type="register">
+    
+    <% if(error) { %>
+        
+        <div id="error-message" class="show">
+            <%= error %>
+        </div>
+        <script>
+            setTimeout(function(){
+            document.getElementById("error-message").classList.remove("show");
+            document.getElementById("error-message").classList.add("hide");
+        }, 3000);
+        </script>
+    
+    <% } %>
+    
+    <a href="/" id="logo" type="regLog">
+        SortIT
+    </a>
+    
+    <nav>
+        <div id="pageTitle">Witaj!</div>
+    </nav>
+    
+    <form type="register" method="POST" action="/register">
+    
+        <label for="username">Nazwa użytkownika:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label for="password">Hasło:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        
+        <label for="passwordconfirm">Potwierdź Hasło:</label><br>
+        <input type="password" id="passwordconfirm" name="passwordconfirm" required><br><br>
+        
+        <input type="submit" id="loginRegister" value="Zarejestruj">
+        
+        <div class="container signin">
+            <p>Posiadasz już konto? <a href="/login" id="signinRegisterSubbuttons">Zaloguj się</a>.</p>
+        </div>
+    </form> 
+
+    <footer>
+        <pre>
+Tomasz Kozieł
+TI 2022 Kraków
+        </pre>
+    </footer>
+
+</body>
+</html>
